@@ -106,3 +106,386 @@
             border: none;
             cursor: pointer;
         }
+
+        .cta-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* 核心區塊容器 */
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        /* 痛點區塊 */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* 互動式人機介面展示區 (模擬辦公桌) */
+        .desk-simulator {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 2rem;
+            color: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem;
+        }
+
+        .simulator-header {
+            border-bottom: 1px solid #334155;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dot-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ef4444;
+        }
+        .dot:nth-child(2) { background: #f59e0b; }
+        .dot:nth-child(3) { background: #10b981; }
+
+        .desk-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .desk-grid { grid-template-columns: 1fr; }
+        }
+
+        /* 模擬螢幕與硬體鍵盤 */
+        .hardware-panel {
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #334155;
+        }
+
+        .display-screen {
+            background: #020617;
+            border: 2px solid #1e293b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            font-family: monospace;
+            color: #38bdf8;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.9);
+        }
+
+        .screen-line { margin-bottom: 0.5rem; font-size: 1.1rem;}
+        .highlight-text { color: #4ade80; font-weight: bold;}
+
+        /* 實體按鍵配置 */
+        .keyboard-layout {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .hw-btn {
+            padding: 1.2rem 0.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 0px rgba(0,0,0,0.3);
+            transition: all 0.1s;
+        }
+
+        .hw-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 0px 0px rgba(0,0,0,0.3);
+        }
+
+        .btn-stop { background: var(--danger); box-shadow: 0 4px 0px #991b1b; }
+        .btn-run { background: var(--success); box-shadow: 0 4px 0px #166534; }
+        .btn-abort { background: var(--warning); box-shadow: 0 4px 0px #854d0e; color: #0f172a; }
+
+        /* 運作說明文字 */
+        .sim-desc h3 { color: #f8fafc; margin-bottom: 1rem; font-size: 1.5rem; }
+        .sim-desc p { color: #94a3b8; margin-bottom: 1.5rem; }
+        .tech-list { list-style: none; }
+        .tech-list li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; color: #cbd5e1;}
+        .tech-list li i { color: #38bdf8; }
+
+        /* 比較表格 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+        }
+
+        th, td { padding: 1.2rem 1.5rem; text-align: left; }
+        th { background: #0f172a; color: white; font-weight: 600; }
+        tr:nth-child(even) { background: var(--bg-light); }
+        td:first-child { font-weight: 600; color: #0f172a; }
+
+        /* 聯署與意見反饋 */
+        .feedback-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .radio-group { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem; }
+
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <i class="fa-solid fa-robot"></i> 公民提案：智慧案頭助教系統
+        </div>
+        <div>
+            <span style="color: var(--text-muted); font-size: 0.95rem;">教師行政減負計畫草案</span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="tag">💡 創新「人機共生（Human-in-the-loop）」架構</div>
+            <h1>告別深夜紅筆過勞！<br>最懂老師的智慧案頭助教系統</h1>
+            <p class="subtitle">
+                不需高昂龐大的工廠式設備，直接在您的辦公桌上展開完美協作。
+                您負責手動翻頁與關懷學生的教學溫度，繁瑣、重複性的核對與落筆交給安全 AI 手臂。
+            </p>
+            <button class="cta-btn" onclick="document.getElementById('feedback').scrollIntoView({behavior: 'smooth'});">支持這項公民提案</button>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">為什麼我們需要這個提案？</h2>
+        <div class="grid-3">
+            <div class="card">
+                <i class="fa-solid fa-hand-holding-medical" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
+                <h3>拒絕肌肉勞損與職災</h3>
+                <p>中小學教師每日重複揮動紅筆打勾、計算總分、填寫重複評語，導致嚴重的職災（手腕隧道症候群、網球肘）。</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-hourglass-half" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
+                <h3>奪回寶貴的教研時間</h3>
+                <p>每晚熬夜批改堆積如山的作業本，嚴重擠壓了教師研究創新教案、精進教材品質與休息的時間。</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-heart-pulse" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
+                <h3>重拾真正的教學溫度</h3>
+                <p>將重複性的「肌肉記憶」自動化，讓老師能將 100% 的重心與耐心，真正放在關懷低成就學生與個別輔導上。</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #0f172a; padding: 1px 0;">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">案頭協作模組：硬體與人機介面展示</h2>
+            
+            <div class="desk-simulator">
+                <div class="simulator-header">
+                    <div class="dot-group">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div style="font-size: 0.9rem; color: #64748b; font-family: monospace;">DESK_COBOT_INTERFACE_V1.0</div>
+                </div>
+                
+                <div class="desk-grid">
+                    <div class="sim-desc">
+                        <h3>完美契合老師的既有辦公桌</h3>
+                        <p>這套系統直接部署於老師目前的辦公空間，由一台連接學校 AI 資料庫的輕量化安全協作手臂與垂直俯瞰鏡頭組成。其核心工程思維包含：</p>
+                        <ul class="tech-list">
+                            <li><i class="fa-solid fa-shield-halved"></i> <strong>具身智能動態避障：</strong> 即時識別「紙張區域」與「人類雙手」，手臂會溫柔閃避老師的手指，100% 絕對安全。</li>
+                            <li><i class="fa-solid fa-feather-pointed"></i> <strong>被動順應軟質筆尖：</strong> 採用高彈性軟頭毛筆或海綿簽字筆，內建物理緩衝，皺褶紙張也絕不劃破。</li>
+                            <li><i class="fa-solid fa-rotate"></i> <strong>周而復始閉環校驗：</strong> 老師隨手翻頁按住，手臂即時落筆並留下標記。若老師用鍵盤中斷退出，系統會完整合書還原。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="hardware-panel">
+                        <div style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: bold;">
+                            <i class="fa-solid fa-desktop"></i> 智慧控制顯示器 (運作狀態)
+                        </div>
+                        <div class="display-screen">
+                            <div class="screen-line">> SYSTEM STATUS: <span class="highlight-text">RUNNING_協作中</span></div>
+                            <div class="screen-line">> CURRENT STUDENT: <span style="color: #f59e0b; font-weight: bold;">三年二班 張小明</span></div>
+                            <div class="screen-line">> EST. REMAINING TIME: <span style="color: #f43f5e;">01:45</span></div>
+                            <div class="screen-line">> AI DATABASE: CONNECTED_OK</div>
+                        </div>
+                        
+                        <div style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: bold;">
+                            <i class="fa-solid fa-keyboard"></i> 案頭專用實體硬體鍵盤
+                        </div>
+                        <div class="keyboard-layout">
+                            <button class="hw-btn btn-stop" onclick="alert('【立即停止】已觸發：手臂進入安全煞車鎖死狀態。')">
+                                <i class="fa-solid fa-hand"></i><br><br>立即停止
+                            </button>
+                            <button class="hw-btn btn-run" onclick="alert('【繼續運行】已觸發：手臂重新啟動視覺掃描。')">
+                                <i class="fa-solid fa-play"></i><br><br>繼續運行
+                            </button>
+                            <button class="hw-btn btn-abort" onclick="alert('【停止批改退出該作業】已觸發：手臂安全退回原點，請老師手動收回目前作業。')">
+                                <i class="fa-solid fa-eject"></i><br><br>停止批改<br>退出該作業
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">方案可行性對比：為什麼不採用「全自動艙」？</h2>
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>評比項目</th>
+                        <th style="color: #38bdf8; background: #1e293b;">本提案：案頭人機協作系統</th>
+                        <th>傳統工業式全自動批改艙</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>硬體建置成本</strong></td>
+                        <td style="color: var(--success); font-weight: bold;"><i class="fa-solid fa-circle-check"></i> 極低（僅需輕量臂+鏡頭，免複雜機構）</td>
+                        <td><i class="fa-solid fa-circle-xmark" style="color: var(--danger)"></i> 極高（需高昂分紙、吸附、輸送帶硬體）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>辦公空間佔用</strong></td>
+                        <td style="color: var(--success); font-weight: bold;"><i class="fa-solid fa-circle-check"></i> 零（如同檯燈般與老師既有桌面融合）</td>
+                        <td><i class="fa-solid fa-circle-xmark" style="color: var(--danger)"></i> 高（體積大，需佔用辦公室公共事務空間）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>紙張材質容錯率</strong></td>
+                        <td style="color: var(--success); font-weight: bold;"><i class="fa-solid fa-circle-check"></i> 100%（人類雙手是世界上最完美的翻頁機構）</td>
+                        <td><i class="fa-solid fa-circle-xmark" style="color: var(--danger)"></i> 低（破損、靜電、吸附不均極易卡紙卡機）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>教學溫度與彈性</strong></td>
+                        <td style="color: var(--success); font-weight: bold;"><i class="fa-solid fa-circle-check"></i> 極高（老師翻頁時能同時掌握學生盲點）</td>
+                        <td><i class="fa-solid fa-circle-xmark" style="color: var(--danger)"></i> 低（全權交給機器，老師只看最後冷冰冰的分數）</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <section id="feedback" style="background: #f1f5f9; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">支持推動「校園智慧減負」政策提案</h2>
+            <div class="feedback-form">
+                <form onsubmit="event.preventDefault(); alert('感謝您的支持！本資料將彙整納入《公民提案計畫書草案》中。');">
+                    <div class="form-group">
+                        <label for="identity">您的身份</label>
+                        <select id="identity" required>
+                            <option value="">請選擇...</option>
+                            <option value="1">國小教師</option>
+                            <option value="2">國中教師</option>
+                            <option value="3">高中職教師</option>
+                            <option value="4">關心教育的家長</option>
+                            <option value="5">其他</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>您認為這套系統最能幫您省下哪類作業的批改時間？（多選）</label>
+                        <div class="radio-group">
+                            <label style="font-weight: normal;"><input type="checkbox" name="type" value="math" style="width: auto; margin-right: 0.5rem;"> 數學/理科填空簿</label>
+                            <label style="font-weight: normal;"><input type="checkbox" name="type" value="lang" style="width: auto; margin-right: 0.5rem;"> 語文生字簿/甲乙本</label>
+                            <label style="font-weight: normal;"><input type="checkbox" name="type" value="book" style="width: auto; margin-right: 0.5rem;"> 聯絡簿批改/簽名</label>
+                            <label style="font-weight: normal;"><input type="checkbox" name="type" value="quiz" style="width: auto; margin-right: 0.5rem;"> 選擇題與填空考卷</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">您對本協作系統的進一步期望與建議</label>
+                        <textarea id="comment" rows="4" placeholder="請寫下您的想法，例如：希望可以整合自動計算全班班平均功能..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn" style="width: 100%;">送出並支持公民提案</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 公民提案計畫書草案 — 中小學教師行政與教學減負推動小組</p>
+    </footer>
+
+</body>
+</html>
