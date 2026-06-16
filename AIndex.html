@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公民提案：智慧案頭助教系統</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --secondary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #3b82f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* 導覽列 */
+        nav {
+            background-color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-text {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* 前往 GitHub 的連結按鈕 */
+        .btn-github {
+            background-color: #24292f;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-github:hover {
+            background-color: #0f1419;
+        }
+
+        /* Hero Section */
+        header {
+            background: radial-gradient(circle at 50% 50%, #eff6ff 0%, #ffffff 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .badge {
+            background-color: #fff;
+            color: var(--secondary);
+            border: 1px solid #dbeafe;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.5rem;
+            color: #334155;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        header p.desc {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .btn-main {
+            background-color: var(--secondary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+            transition: background-color 0.2s;
+        }
+
+        .btn-main:hover {
+            background-color: var(--primary);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: #0f172a;
+        }
+
+        /* Why We Need This */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.02);
+            border: 1px solid #f1f5f9;
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">
+            🤖 公民提案：智慧案頭助教系統
+        </div>
+        <div class="nav-links">
+            <span class="nav-text">教師行政減負計畫草案</span>
+            <a href="https://github.com/Ai-teachersarmsupportprojiun/blob/main/Projiunproposal.html" class="btn-github" target="_blank">
+                <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                查看政策認同機制原始碼
+            </a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="badge">💡 創新「人機共生（Human-in-the-loop）」架構</div>
+        <h1>告別深夜紅筆過勞！</h1>
+        <div class="subtitle">最懂老師的智慧案頭助教系統</div>
+        <p class="desc">無需高昂龐大的工廠式設備，直接在您的辦公桌上展開完美協作。您負責手動翻頁與關懷學生的教學溫度，繁瑣、重複性的核對與落筆交給安全 AI 手臂。</p>
+        <a href="#" class="btn-main">支持這項公民提案</a>
+    </header>
+
+    <div class="container">
+        <h2>為什麼我們需要這個提案？</h2>
+        <div class="grid-2">
+            <div class="card">
+                <div class="icon"> Menlo ➕ </div>
+                <h3>拒絕肌肉勞損與職災</h3>
+                <p>中小學教師每日重複揮動紅筆打勾、計算總分、填寫重複評語，導致嚴重的職災（手腕隧道症候群、網球肘）。</p>
+            </div>
+            <div class="card">
+                <div class="icon"> ⏳ </div>
+                <h3>奪回寶貴的教研時間</h3>
+                <p>每晚熬夜批改堆積如山的作業本，嚴重擠壓了教師研究創新教案、精進教材品質與休息的時間。</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
