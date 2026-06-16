@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教師的科技金鐘罩：把壓力還給系統，把教學還給老師</title>
+    <style>
+        :root {
+            --bg-dark: #1a1a1a;
+            --bg-light: #f4f7f6;
+            --primary-blue: #2a75d3;
+            --accent-red: #e74c3c;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* 全域網頁區段樣式 */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* 漸層與過渡效果 */
+        .light-mode {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        h1, h2 {
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(42, 117, 211, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background-color: #1e63bc;
+        }
+
+        /* 第一幕：窒息現場 */
+        #scene-1 {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80') center/cover;
+            position: relative;
+        }
+
+        .complaint-container {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 40px;
+            position: relative;
+            height: 180px;
+        }
+
+        .complaint-card {
+            background-color: rgba(231, 76, 60, 0.15);
+            border-left: 5px solid var(--accent-red);
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 1rem;
+            text-align: left;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* 第二幕：靈魂拷問 */
+        #scene-2 {
+            background-color: #2c3e50;
+        }
+
+        .balance-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 800px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .balance-side {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            width: 45%;
+            min-width: 280px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .balance-side.heavy {
+            border-color: var(--accent-red);
+            background: rgba(231, 76, 60, 0.1);
+        }
+
+        .balance-side.right-choice {
+            border-color: #2ecc71;
+            background: rgba(46, 204, 113, 0.1);
+        }
+
+        /* 第三幕：科技金鐘罩 */
+        #scene-3 .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 30px;
+        }
+
+        .shield-card {
+            background: var(--card-bg);
+            color: var(--text-dark);
+            padding: 30px 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .shield-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 15px 35px rgba(42, 117, 211, 0.15);
+        }
+
+        .shield-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* 模出視窗彈出 (Modal) */
+        .modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: white; color: var(--text-dark);
+            padding: 40px; border-radius: 20px; max-width: 500px; width: 90%;
+            text-align: left; position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .close-modal {
+            position: absolute; top: 15px; right: 20px;
+            font-size: 1.5rem; cursor: pointer; color: #95a5a6;
+        }
+
+        /* 第四幕：自由選擇與連署 */
+        .choice-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 500px;
+            margin: 30px 0;
+        }
+
+        .choice-label {
+            background: var(--card-bg);
+            color: var(--text-dark);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .choice-label input {
+            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .counter-box {
+            background: rgba(42, 117, 211, 0.1);
+            border: 1px dashed var(--primary-blue);
+            color: var(--primary-blue);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 第一幕：窒息的現場 -->
+    <section id="scene-1" class="section">
+        <h1>當校園現場只剩下綁架...</h1>
+        <p>一位認真的老師，今天收到了來自家長的投訴信與行政長官的「關切」：</p>
+        
+        <div class="complaint-container">
+            <div class="complaint-card">
+                🚨 <strong>家長投訴：</strong>「老師你請我兒子到後面聽課是變相體罰！我要投訴你不當管教、傷害孩子自尊心！」
+            </div>
+            <div class="complaint-card" style="animation-delay: 0.3s;">
+                💬 <strong>家長Line訊息：</strong>「我上班很累沒時間管他，你是老師，改正他是你的責任，但你不准處罰他。」
+            </div>
+        </div>
+
+        <button class="btn" onclick="goToScene2()">我只是個凡人，不是聖人。點此釋放壓力</button>
+    </section>
+
+    <!-- 第二幕：靈魂拷問 -->
+    <section id="scene-2" class="section hidden">
+        <h2>這是一場對全班的「教育不公」</h2>
+        <p>每堂課只有40分鐘。當我們被迫耗費15分鐘去應付一個不斷狡辯、睡覺、不寫作業且家庭放棄管教的學生時...</p>
+        
+        <div class="balance-container">
+            <div class="balance-side heavy">
+                <h3>❌ 道德綁架的假象</h3>
+                <p style="font-size:0.95rem; margin-top:10px;">長官口中的「用愛發電、包容改變」，正在無底線地消耗第一線老師的熱情與健康。</p>
+            </div>
+            <div class="balance-side right-choice">
+                <h3>⚖️ 被偷走的受教權</h3>
+                <p style="font-size:0.95rem; margin-top:10px;">這15分鐘，是從班上其他95%守秩序、渴望學習的孩子身上偷走的。保護多數人，才是公平。</p>
+            </div>
+        </div>
+
+        <button class="btn" onclick="goToScene3()">開啟科技防護罩，把教學還給老師</button>
+    </section>
+
+    <!-- 第三幕：科技金鐘罩 -->
+    <section id="scene-3" class="section hidden">
+        <h2>科技，是最好的衝突隔離罩</h2>
+        <p>不當聖人，只當好老師。點擊下方防禦模組，看科技如何合法、科學地為教師減壓：</p>
+        
+        <div class="grid-container">
+            <div class="shield-card" onclick="openModal('zone')">
+                <div class="shield-icon">🛡️</div>
+                <h3>課堂數位隔離區</h3>
+                <p style="font-size:0.95rem; margin-top:10px; color:#7f8c8d;">隔離現場口頭衝突，合法保障受教權。</p>
+            </div>
+            <div class="shield-card" onclick="openModal('ai-tutor')">
+                <div class="shield-icon">🤖</div>
+                <h3>下課AI課輔緩衝</h3>
+                <p style="font-size:0.95rem; margin-top:10px; color:#7f8c8d;">不寫作業交給系統，老師下課去喝水。</p>
+            </div>
+            <div class="shield-card" onclick="openModal('firewall')">
+                <div class="shield-icon">🧱</div>
+                <h3>親師AI防火牆</h3>
+                <p style="font-size:0.95rem; margin-top:10px; color:#7f8c8d;">過濾家長情緒海嘯，嚴禁下班私自佔用。</p>
+            </div>
+            <div class="shield-card" onclick="openModal('syllabus')">
+                <div class="shield-icon">📋</div>
+                <h3>官方AI教學大綱</h3>
+                <p style="font-size:0.95rem; margin-top:10px; color:#7f8c8d;">遵循標準防禦，責任風險上推教育部。</p>
+            </div>
+        </div>
+
+        <button class="btn" style="margin-top: 40px;" onclick="goToScene4()">我需要這個靠山</button>
+    </section>
+
+    <!-- 第四幕：自由選擇與連署 -->
+    <section id="scene-4" class="section hidden">
+        <h2>用不用科技，是老師的自主選擇</h2>
+        <p>我們不強迫每個人改變，但體制必須給想安穩教學的老師，一條合法的制度生路。</p>
+        
+        <div class="counter-box">
+            🔥 全台已有 <span id="count-number">8,421</span> 位老師加入科技金鐘罩聯署
+        </div>
+
+        <div class="choice-container">
+            <label class="choice-label">
+                <input type="radio" name="teacher-choice" value="saint" onclick="triggerVote()">
+                我是熱血聖人，我希望繼續燃燒自己用愛感化。
+            </label>
+            <label class="choice-label">
+                <input type="radio" name="teacher-choice" value="pro" onclick="triggerVote(true)">
+                我是專業職人，我需要科技防護罩，讓我輕鬆、公平地教育。
+            </label>
+        </div>
+
+        <p id="vote-thanks" class="hidden" style="color: #2ecc71; font-weight: bold;">感謝您的發聲！您的選擇已被記錄，我們將把現場心聲正式寫入《公民提案計畫書草案》！</p>
+    </section>
+
+    <!-- 模組彈出視窗內容 -->
+    <div id="info-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title" style="margin-bottom: 15px; color: var(--primary-blue);"></h3>
+            <p id="modal-desc" style="font-size: 1rem; color: var(--text-dark); max-width: 100%; margin-bottom: 0;"></p>
+        </div>
+    </div>
+
+    <script>
+        // 場景切換邏輯
+        function goToScene2() {
+            document.getElementById('scene-1').classList.add('hidden');
+            document.getElementById('scene-2').classList.remove('hidden');
+        }
+
+        function goToScene3() {
+            document.getElementById('scene-2').classList.add('hidden');
+            document.getElementById('scene-3').classList.remove('hidden');
+            document.body.classList.add('light-mode'); // 轉為明亮科技感安全色調
+        }
+
+        function goToScene4() {
+            document.getElementById('scene-3').classList.add('hidden');
+            document.getElementById('scene-4').classList.remove('hidden');
+        }
+
+        // 彈出視窗資料
+        const modalData = {
+            'zone': {
+                title: '🛡️ 課堂數位隔離區',
+                desc: '學生課堂睡覺、狡辯、影響秩序時，不再需要耗神訓斥或罰站。請他改坐教室後方「數位隔離座」戴耳機觀看課堂直播。切斷全班面前爭對錯的舞台，全程留存數位互動紀錄，家長完全無法投訴「剝奪受教權」或「體罰羞辱」。'
+            },
+            'ai-tutor': {
+                title: '🤖 下課AI課輔緩衝區',
+                desc: '學生不寫作業，老師不催繳、不痛罵、不犧牲休息時間留置。下課時間該生直接前往數位區，由「教育部官方一對一 AI 系統」引導補寫與評分。把「作業糾紛」轉化為「學生與AI系統」的互動，老師只負責看後台報告。'
+            },
+            'firewall': {
+                title: '🧱 親師AI防火牆',
+                desc: '嚴禁家長下班後與休假日私自傳訊干擾。家長若有質疑或投訴，需先進入「親師AI客服系統」，由 AI 自動過濾情緒性字眼，並比對孩子在校學習數據（如入睡幾次、缺繳幾次）先予客觀回覆，再將精簡後的訴求與對策提報給老師一鍵確認。'
+            },
+            'syllabus': {
+                title: '📋 教育部官方AI教學大綱',
+                desc: '一鍵生成標準教材與標準進度。當行政長官或家長質疑教學品質時，老師的合法擋箭牌是：「我是完全遵循教育部官方AI系統的進度與指標教學。」將法律與政治責任直接合理上推，拒絕個別考核被惡意扣分。'
+            }
+        };
+
+        function openModal(type) {
+            document.getElementById('modal-title').innerText = modalData[type].title;
+            document.getElementById('modal-desc').innerText = modalData[type].desc;
+            document.getElementById('info-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('info-modal').classList.add('hidden');
+        }
+
+        // 連署投票互動
+        let voted = false;
+        function triggerVote(isPro) {
+            if (!voted) {
+                let currentCount = 8421;
+                if (isPro) {
+                    currentCount += 1;
+                    document.getElementById('count-number').innerText = currentCount.toLocaleString();
+                }
+                voted = true;
+                document.getElementById('vote-thanks').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
