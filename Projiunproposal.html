@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公民提案計畫：建立全民政策認同與國會制衡平台</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #dc2626;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --accent: #0ea5e9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--secondary);
+            margin: 10px auto 0;
+        }
+
+        /* Pain Points */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* Interactive Simulator */
+        .simulator-box {
+            background: #1e293b;
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .slider-container {
+            margin: 30px 0;
+        }
+
+        input[type=range] {
+            width: 80%;
+            max-width: 600px;
+            height: 15px;
+            border-radius: 5px;
+            background: #475569;
+            outline: none;
+        }
+
+        .counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 20px 0;
+        }
+
+        .status-triggered {
+            background-color: var(--secondary);
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Solutions */
+        .solution-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--accent);
+        }
+
+        .solution-section h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Tech Section */
+        .tech-box {
+            background: #f1f5f9;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px dashed #cbd5e1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--dark);
+            color: white;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>國家級數位直接民權參與平台</h1>
+        <p>解決「代議民主失靈、黨團政治綁架」的憲政防禦計畫書草案</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Section 1: 現狀痛點 -->
+        <section>
+            <h2>當前憲政體制的三大痛點</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>1. 國會權力缺乏即時制衡</h3>
+                    <p>立法委員經選舉產生後，在四年的任期內，人民缺乏常態性的直接手段對其爭議法案投下反對票，導致代議制與基層民意脫節。</p>
+                </div>
+                <div class="card">
+                    <h3>2. 黨意凌駕民意</h3>
+                    <p>個別立委往往受制於所屬政黨或黨團的指令，即便面對選區選民強烈支持的政策，仍被迫集體杯葛，失去獨立代議士的精神。</p>
+                </div>
+                <div class="card">
+                    <h3>3. 國安與國防法案遭無限期擱置</h3>
+                    <p>涉及重大軍購、國防安全等國家核心利益之法案，易流於兩黨焦土戰，在委員會遭長期抽換、拒絕排審，人民眼睜睜看著國安受損卻無能為力。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 互動模擬器 -->
+        <section>
+            <h2>1/10 全民制衡閾值機制模擬</h2>
+            <div class="simulator-box">
+                <p>拉動下方滑桿，模擬全國不認同/棄權投票人數。當達到全國 1/10 人口門檻時，將觸發憲政安全防禦機制：</p>
+                
+                <div class="slider-container">
+                    <input type="range" id="voteSlider" min="0" max="400" value="50" oninput="updateSimulation(this.value)">
+                </div>
+                
+                <p>目前不認同/棄權連署人數：</p>
+                <div class="counter" id="voteCounter">50 萬人</div>
+                
+                <div class="status-triggered" id="triggerStatus">
+                    🚨 突破 230 萬人 (1/10 閾值)！已依法啟動「全民制衡反制機制」！
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: 核心解決方案 -->
+        <section>
+            <h2>三大數位制衡法理工具</h2>
+            
+            <div class="solution-section">
+                <span class="badge">工具一：國安與重大政策強制解凍</span>
+                <h3>重大預算案與法案・打破黑箱杯葛</h3>
+                <p><strong>運作機制：</strong>當涉及國防軍購、重大民生法案在立法院遭擱置、拒絕排審超過 30 天，且本平台反對杯葛之連署達到 1/10（230萬人）。</p>
+                <p><strong>合憲法效：</strong>依法強制跨過黨團協商，直接提報立法院院會，並進行<strong>全台直播之「記名表決」</strong>。逼迫立委在鎂光燈與選民壓力下公開表態，徹底瓦解黨團黑箱綁架。</p>
+            </div>
+
+            <div class="solution-section">
+                <span class="badge">工具二：立委個體反淘汰（罷免）預警系統</span>
+                <h3>區域立委表決追蹤・精準施加民意壓力</h3>
+                <p><strong>運作機制：</strong>網頁與法案記名表決連動。當某區域立委之表決行為逆向操作、無視民意時，若該選區有超過 10% 之選民在平台按下「不認同該立委此項表決」。</p>
+                <p><strong>合憲法效：</strong>系統將自動觸發並生成<strong>「法定罷免成案通知書」</strong>，直接轉化為《公職人員選舉罷免法》第一階段之法定連署，讓違背民意的立委面對實質官位危機。</p>
+            </div>
+
+            <div class="solution-section">
+                <span class="badge">工具三：極速數位複決公投</span>
+                <h3>落實憲法第 17 條創制複決權</h3>
+                <p><strong>運作機制：</strong>立法院若強行通過擴權、違背主流民意之法案。人民於 30 天內在平台上發動反對投票，票數跨越 1/10 門檻。</p>
+                <p><strong>合憲法效：</strong>該惡法<strong>依法自動進入凍結狀態</strong>，並強制於 3 個月內辦理全民公投。完全繞開行政、立法權衝突，將法規最終決定權交還給全體國家主人。</p>
+            </div>
+        </section>
+
+        <!-- Section 4: 技術防禦 -->
+        <section>
+            <h2>國家級系統資訊安全防禦架構</h2>
+            <div class="tech-box">
+                <p>為了防止網軍灌票、個資外流幫他人代投等技術漏洞，本平台導入以下最高規格資安機制：</p>
+                <br>
+                <ul>
+                    <li><strong>數位身分信任驗證：</strong>拋棄純身分證字號盲測。全面串接<strong>行動自然人憑證 (TW FidO)</strong> 與健保卡雙因子認證，確保「一人一票，確實為本人親自操作」。</li>
+                    <li><strong>AI 多維度行為軌跡偵測：</strong>不單純依賴 IP 判定。導入隱形驗證機制，深度動態分析前端瀏覽器指紋（Browser Fingerprinting）與滑鼠操作軌跡，精準過濾網軍分散式殭屍網路（Botnet）與自動化腳本灌票。</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>公民提案計畫書草案展示頁面 © 2026 數位直接民權深化研究小組</p>
+    </footer>
+
+    <script>
+        function updateSimulation(val) {
+            // 將滑桿數值轉為萬人
+            document.getElementById('voteCounter').innerText = val + ' 萬人';
+            
+            // 台灣1/10人口約為230萬
+            if(val >= 230) {
+                document.getElementById('triggerStatus').style.display = 'block';
+                document.getElementById('voteCounter').style.color = '#dc2626';
+            } else {
+                document.getElementById('triggerStatus').style.display = 'none';
+                document.getElementById('voteCounter').style.color = 'var(--accent)';
+            }
+        }
+    </script>
+</body>
+</html>
